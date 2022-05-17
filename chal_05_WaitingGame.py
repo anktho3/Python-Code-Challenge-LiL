@@ -2,7 +2,7 @@ import time
 from random import randint
 
 def waiting_game():
-    selectedTime = randint(1, 5)
+    selectedTime = randint(2, 5)
     print("Your target time is " + str(selectedTime) + " seconds.")
     input("---Press Enter to Begin---")
     timeStarted = time.time_ns()
