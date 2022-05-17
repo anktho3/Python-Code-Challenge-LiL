@@ -10,6 +10,9 @@ def primefactorize(numIn):
             factors += 1
     return primes
 
-while True:
-    numIn = input("Enter a positve integer: ")
+    
+numIn = input("Enter a positve integer: ")
+while len(numIn) > 0:
     print(primefactorize(numIn))
+    numIn = input("\nEnter a positve integer: ")
+
