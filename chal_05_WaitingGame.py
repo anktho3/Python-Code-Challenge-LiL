@@ -6,7 +6,7 @@ def waiting_game():
     print("Your target time is " + str(selectedTime) + " seconds.")
     input("---Press Enter to Begin---")
     timeStarted = time.time_ns()
-    input("...Press Enter again after {selectedTime} seconds...")
+    input(f"\n...Press Enter again after {selectedTime} seconds...")
     timeEnded = time.time_ns()
 
     timeWaited = (timeEnded - timeStarted) / 1000000000
