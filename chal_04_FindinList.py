@@ -12,4 +12,4 @@ def index_all(listName, indexCrit):
             for index in index_all(listName[i], indexCrit):
                 indices.append([i]+index)
     return indices
-
+    
