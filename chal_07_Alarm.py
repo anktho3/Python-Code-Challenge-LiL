@@ -1,22 +1,15 @@
+from ast import arg
 import time, sched
+import wave
 import simpleaudio as sa
+from simpleaudio import PlayObject
 
 
 
 def alarm(setTime, alarmSound, message):
-    wave_audio = sa.WaveObject.from_wave_file(alarmSound)
-    play_obj = wave_audio.play()
-
-    alarmTime = time.time() + float(setTime)
-    print("The alarm will ring in ", alarmTime, " seconds")
-
-    while time.time() != alarmTime:
-        print("sleeping")
-    if time.time() >= alarmTime:
-        for play_obj in range(5):
-            wave_audio.play()
-            print(play_obj)
-    
-    print(message)
-
-
+    wave_obj = sa.WaveObject.from_wave_file(alarmSound)
+    s = sched.scheduler(time.time, time.sleep)
+    s.enterabs(setTime, 1, print, argument=(message,))
+    s.enterabs(setTime, 1, PlayObject(), argument=(wave_obj))
+    print('Alarm set for', time.asctime(time.localtime(setTime)))
+    s.run()
