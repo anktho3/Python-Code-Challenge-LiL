@@ -13,11 +13,10 @@ def alarm(setTime, alarmSound, message):
 
     while True:
         if time.time() >= alarmTime:
-            for play_obj in range(5):
+            for count in range(0, 5):
                 wave_audio.play()
                 print(message)
                 time.sleep(2)
-                play_obj
             break
         else:
             print("The time is: ", time.time())
